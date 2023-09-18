@@ -5,7 +5,7 @@ export const VideoPlay = (props) => {
         name
     } = props
 
-    const API = "AIzaSyBr2CR3rcNLf8LI7ugNqbjyZjDlfS0jWcI";
+    const API = "AIzaSyC0F0SICC08z0od6qa28xVhU3sOuT8VkCs";
     // fetch youtube video from name
     const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${name}&key=${API}`;
 

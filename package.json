@@ -2,7 +2,6 @@
   "name": "netflix-clone",
   "version": "1.0.0",
   "description": "",
-  "homepage": "https://azazel5.github.io/NetflixClone/",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
@@ -36,11 +35,10 @@
   "scripts": {
     "start": "react-scripts --openssl-legacy-provider start",
     "cypress": "cypress open",
-    "build": "react-scripts build",
+    "build": "react-scripts --openssl-legacy-provider build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "predeploy": "npm run build"
   },
   "browserslist": [
     ">0.2%",
