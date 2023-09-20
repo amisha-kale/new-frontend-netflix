@@ -118,28 +118,29 @@ const Login = (props) => {
 
     await Axios({
       method: "post",
-      url: `https://ba01-2405-201-d01a-3101-9d42-b897-b3cb-77a2.ngrok-free.app/api/Subscription/${localStorage.getItem('userId')}`,
+      url: `https://netflixapi.azurewebsites.net/api/Subscription/${localStorage.getItem(
+        "userId"
+      )}`,
       // headers: {
       //   Authorization: `Bearer ${localStorage.getItem("token")}`,
       // },
-      
+
       data: {
         userId: localStorage.getItem("userId"),
-      }
+      },
     })
       .then((res) => {
         console.log(res.data);
-        if(res.data === "No subscriptions found for the specified user."){
+        if (res.data === "No subscriptions found for the specified user.") {
           alert("You are not subscribed to any plan");
           setTimeout(() => {
             history.push("/signup/planform");
-          },1000);
-        }
-        else{
+          }, 1000);
+        } else {
           alert("You are already subscribed to a plan");
           setTimeout(() => {
             history.push("/browse");
-        },1000);
+          }, 1000);
         }
       })
       .catch((err) => {
@@ -155,7 +156,7 @@ const Login = (props) => {
     } else {
       Axios({
         method: "post",
-        url: "https://ba01-2405-201-d01a-3101-9d42-b897-b3cb-77a2.ngrok-free.app/api/UsersAuth/login",
+        url: "https://netflixapi.azurewebsites.net/api/UsersAuth/login",
         data: {
           userName: form.email.value,
           password: form.password.value,
@@ -170,7 +171,6 @@ const Login = (props) => {
           if (res.status === 200) {
             checkForPlan();
           }
-          
         })
         .catch((err) => {
           alert("Invalid Credentials/Either you are not registered");

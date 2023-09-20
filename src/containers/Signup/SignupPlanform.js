@@ -24,7 +24,7 @@ export const SignupPlanform = () => {
   const clickToSubscribe = (price) => {
     Axios({
       method: "post",
-      url: "https://ba01-2405-201-d01a-3101-9d42-b897-b3cb-77a2.ngrok-free.app/api/Subscription",
+      url: "https://netflixapi.azurewebsites.net/api/Subscription",
       data: {
         userId: `${localStorage.getItem("userId")}`,
         paymentMethodToken: "online",
@@ -33,13 +33,12 @@ export const SignupPlanform = () => {
         endDate: `${oneMonthFromNow.toISOString()}`,
       },
     }).then((res) => {
-      if(res.status === 200){
+      if (res.status === 200) {
         alert("Subscription Successful");
         setTimeout(() => {
           history.push("/browse");
-
-      },1000);
-    }
+        }, 1000);
+      }
     });
   };
 

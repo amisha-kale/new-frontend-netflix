@@ -16,7 +16,7 @@ const List = () => {
   const fetchMovieList = async () => {
     Axios({
       method: "post",
-      url: "https://ba01-2405-201-d01a-3101-9d42-b897-b3cb-77a2.ngrok-free.app/api/MovieList",
+      url: "https://netflixapi.azurewebsites.net/api/MovieList",
       data: {
         userId: `${localStorage.getItem("userId")}`,
       },

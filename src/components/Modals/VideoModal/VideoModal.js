@@ -51,7 +51,9 @@ const VideoModal = props => {
     const onClickForAddToList = () => {
         Axios({
           method: "post",
-          url: `https://ba01-2405-201-d01a-3101-9d42-b897-b3cb-77a2.ngrok-free.app/api/MovieList/${localStorage.getItem('userId')}`,
+          url: `https://netflixapi.azurewebsites.net/api/MovieList/${localStorage.getItem(
+            "userId"
+          )}`,
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },

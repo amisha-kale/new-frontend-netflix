@@ -69,25 +69,29 @@ export const Signup = () => {
 
   const formSubmitHandler = (event) => {
     event.preventDefault();
-    Axios({
-      method: "post",
-      url: "https://ba01-2405-201-d01a-3101-9d42-b897-b3cb-77a2.ngrok-free.app/api/UsersAuth/signup",
-      data: {
-        userName: email,
-        password: form.password.value,
-      },
-    }).then((res) => {
-      console.log(res);
-      if (res.status === 200) {
-        history.push("/login");
-      }
-    });
-    if (!form.password.valid) {
+   if(form.password.valid){
+
+      Axios({
+        method: "post",
+        url: "https://netflixapi.azurewebsites.net/api/UsersAuth/signup",
+        data: {
+          userName: email,
+          password: form.password.value,
+        },
+      }).then((res) => {
+        console.log(res);
+        if (res.status === 200) {
+          history.push("/login");
+        }
+      });
+   }
+    else{
       setForm((prevForm) => ({
         ...prevForm,
         onSubmitInvalid: true,
       }));
-    }
+    
+  }
   };
 
   return (
